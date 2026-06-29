@@ -52,8 +52,8 @@ export class ReservationsComponent {
     this.submitState = 'loading';
     this.cdr.markForCheck();
 
-    const reservationData = { ...this.form.value, market: 'brasserie1891' };
-    this.http.post('https://localhost:7191/SerpAPI/test-email-with-body', reservationData, { responseType: 'text' }).subscribe({
+    const reservationData = { ...this.form.value, market: 'Brasserie1891' };
+    this.http.post('https://marketswebapi-gde3hpftfdhuawaj.westeurope-01.azurewebsites.net/api/Reservations/CreateReservation', reservationData, { responseType: 'text' }).subscribe({
       next: () => {
         this.submitState = 'success';
         this.cdr.markForCheck();
