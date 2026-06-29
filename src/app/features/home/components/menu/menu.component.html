@@ -1,0 +1,32 @@
+<section class="menu" id="menu">
+  <div class="container">
+
+    <div class="menu-header" appReveal>
+      <p class="section-label">{{ lang.t().menu.label }}</p>
+      <h2 class="section-title">{{ lang.t().menu.titlePre }} <em>{{ lang.t().menu.titleEm }}</em></h2>
+    </div>
+
+    <div class="menu-tabs" appReveal [revealDelay]="100" role="tablist" aria-label="Menu categories">
+      <button
+        *ngFor="let cat of categories()"
+        class="menu-tab"
+        role="tab"
+        [class.active]="isActive(cat.id)"
+        [attr.aria-selected]="isActive(cat.id)"
+        (click)="setTab(cat.id)">
+        {{ cat.label }}
+      </button>
+    </div>
+
+    <div class="menu-grid" appReveal [revealDelay]="200" role="tabpanel">
+      <div class="menu-item" *ngFor="let item of activeCategory().items">
+        <div class="menu-item-info">
+          <h4>{{ item.name }}</h4>
+          <p>{{ item.description }}</p>
+        </div>
+        <span class="menu-price">{{ item.price }}</span>
+      </div>
+    </div>
+
+  </div>
+</section>

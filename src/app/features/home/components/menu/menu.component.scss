@@ -1,0 +1,89 @@
+.menu {
+  padding: 8rem 0;
+  background: var(--bg-3);
+}
+
+.menu-header {
+  margin-bottom: 2.5rem;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────── */
+.menu-tabs {
+  display: flex;
+  width: fit-content;
+  border: 1px solid rgba(184, 144, 44, 0.2);
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.menu-tab {
+  background: none;
+  border: none;
+  border-right: 1px solid rgba(184, 144, 44, 0.2);
+  padding: 0.75rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 235, 210, 0.4);
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease;
+
+  &:last-child { border-right: none; }
+
+  &.active,
+  &:hover {
+    background: var(--amber);
+    color: var(--bg);
+  }
+}
+
+/* ── Grid ─────────────────────────────────────────────────── */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  column-gap: 4rem;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(184, 144, 44, 0.08);
+
+  h4 {
+    font-family: var(--font-display);
+    font-size: 1.12rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(245, 235, 210, 0.38);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+}
+
+.menu-price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--amber-light);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .menu-grid { grid-template-columns: 1fr; column-gap: 0; }
+}

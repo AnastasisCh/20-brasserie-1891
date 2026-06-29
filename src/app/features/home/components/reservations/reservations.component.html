@@ -1,0 +1,104 @@
+<section class="reservations" id="reservations">
+  <div class="container">
+
+    <div class="reservations-header" appReveal>
+      <p class="section-label">{{ lang.t().reservations.label }}</p>
+      <h2 class="section-title">{{ lang.t().reservations.titlePre }} <em>{{ lang.t().reservations.titleEm }}</em></h2>
+      <p class="reservations-subtitle">{{ lang.t().reservations.subtitle }}</p>
+    </div>
+
+    <div class="reservations-card" appReveal [revealDelay]="120">
+
+      <div *ngIf="submitState === 'success'" class="form-success" role="alert">
+        <span class="form-success__icon" aria-hidden="true">〜</span>
+        <h3>{{ lang.t().reservations.successTitle }}</h3>
+        <p>{{ lang.t().reservations.successMsg }}</p>
+        <button class="btn btn-ghost" (click)="reset()">Make another reservation</button>
+      </div>
+
+      <div *ngIf="submitState === 'error'" class="form-error-banner" role="alert">
+        <span aria-hidden="true">⚠</span>
+        {{ lang.t().reservations.errorMsg }}
+      </div>
+
+      <form
+        *ngIf="submitState !== 'success'"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        class="res-form"
+        novalidate>
+
+        <div class="form-row">
+          <div class="form-field" [class.form-field--error]="isInvalid('name')">
+            <label for="res-name">{{ lang.t().reservations.nameLabel }}</label>
+            <input id="res-name" type="text" formControlName="name"
+              [placeholder]="lang.t().reservations.namePlaceholder" autocomplete="name">
+            <span class="field-error" *ngIf="isInvalid('name')" role="alert">Required</span>
+          </div>
+
+          <div class="form-field" [class.form-field--error]="isInvalid('phone')">
+            <label for="res-phone">{{ lang.t().reservations.phoneLabel }}</label>
+            <input id="res-phone" type="tel" formControlName="phone"
+              [placeholder]="lang.t().reservations.phonePlaceholder" autocomplete="tel">
+            <span class="field-error" *ngIf="isInvalid('phone')" role="alert">Required</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field" [class.form-field--error]="isInvalid('email')">
+            <label for="res-email">{{ lang.t().reservations.emailLabel }}</label>
+            <input id="res-email" type="email" formControlName="email"
+              [placeholder]="lang.t().reservations.emailPlaceholder" autocomplete="email">
+            <span class="field-error" *ngIf="isInvalid('email')" role="alert">Valid email required</span>
+          </div>
+
+          <div class="form-field" [class.form-field--error]="isInvalid('partySize')">
+            <label for="res-party">{{ lang.t().reservations.partySizeLabel }}</label>
+            <div class="select-wrapper">
+              <select id="res-party" formControlName="partySize">
+                <option value="" disabled>{{ lang.t().reservations.partySizePlaceholder }}</option>
+                <option *ngFor="let n of partySizes" [value]="n">{{ n }}{{ n === 10 ? '+' : '' }}</option>
+              </select>
+              <span class="select-arrow" aria-hidden="true">▾</span>
+            </div>
+            <span class="field-error" *ngIf="isInvalid('partySize')" role="alert">Required</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field" [class.form-field--error]="isInvalid('date')">
+            <label for="res-date">{{ lang.t().reservations.dateLabel }}</label>
+            <input id="res-date" type="date" formControlName="date" [min]="minDate">
+            <span class="field-error" *ngIf="isInvalid('date')" role="alert">Required</span>
+          </div>
+
+          <div class="form-field" [class.form-field--error]="isInvalid('time')">
+            <label for="res-time">{{ lang.t().reservations.timeLabel }}</label>
+            <input id="res-time" type="time" formControlName="time">
+            <span class="field-error" *ngIf="isInvalid('time')" role="alert">Required</span>
+          </div>
+        </div>
+
+        <div class="form-field form-field--full" [class.form-field--error]="isInvalid('notes')">
+          <label for="res-notes">{{ lang.t().reservations.notesLabel }}</label>
+          <textarea id="res-notes" formControlName="notes"
+            [placeholder]="lang.t().reservations.notesPlaceholder" rows="4">
+          </textarea>
+        </div>
+
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="btn btn-primary btn-large res-submit"
+            [class.loading]="submitState === 'loading'"
+            [disabled]="submitState === 'loading'">
+            <span *ngIf="submitState !== 'loading'">{{ lang.t().reservations.submitBtn }}</span>
+            <span *ngIf="submitState === 'loading'" class="spinner" aria-label="Sending…"></span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>

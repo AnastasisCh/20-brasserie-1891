@@ -1,0 +1,45 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner container">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="logo-mark" aria-hidden="true">❧</span>
+        <span class="logo-text">Brasserie <em>1891</em></span>
+      </div>
+      <p class="footer-tagline">{{ lang.t().footer.tagline }}</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a (click)="scrollTo('about')"   role="link">{{ lang.t().nav.about }}</a>
+      <a (click)="scrollTo('menu')"    role="link">{{ lang.t().nav.menu }}</a>
+      <a (click)="scrollTo('gallery')" role="link">{{ lang.t().nav.gallery }}</a>
+      <a (click)="scrollTo('hours')"   role="link">{{ lang.t().nav.hours }}</a>
+      <a (click)="scrollTo('contact')" role="link">{{ lang.t().nav.findUs }}</a>
+    </nav>
+
+    <div class="footer-social" aria-label="Social media links">
+      <a href="#" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="Google Reviews" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 11h8.533c.044.385.067.78.067 1.184 0 2.744-.98 5.064-2.68 6.63C16.42 20.368 14.398 21 12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9c2.43 0 4.472.87 6.042 2.3L16.1 7.24C14.977 6.187 13.574 5.6 12 5.6 8.465 5.6 5.6 8.465 5.6 12s2.865 6.4 6.4 6.4c3.106 0 5.393-1.77 5.99-4.4H12v-3z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Brasserie 1891. {{ lang.t().footer.copyright }}</p>
+  </div>
+</footer>

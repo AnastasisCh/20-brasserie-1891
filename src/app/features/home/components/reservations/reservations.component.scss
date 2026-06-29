@@ -1,0 +1,209 @@
+.reservations {
+  padding: 8rem 0;
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8rem;
+    left: 50%;
+    translate: -50% 0;
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(184, 144, 44, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.reservations-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+
+  .reservations-subtitle {
+    margin-top: 1rem;
+    color: rgba(245, 235, 210, 0.4);
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    max-width: 520px;
+    margin-inline: auto;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+}
+
+.reservations-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid rgba(184, 144, 44, 0.15);
+  border-radius: 0;
+  padding: 3rem 3.5rem;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+}
+
+.res-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &--full { grid-column: 1 / -1; }
+
+  label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(245, 235, 210, 0.38);
+    font-weight: 400;
+  }
+
+  input, textarea, select {
+    background: var(--surface-2);
+    border: 1px solid rgba(184, 144, 44, 0.12);
+    border-radius: 0;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    appearance: none;
+
+    &::placeholder { color: rgba(245, 235, 210, 0.18); }
+
+    &:focus {
+      outline: none;
+      border-color: var(--amber);
+      box-shadow: 0 0 0 2px rgba(184, 144, 44, 0.1);
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(0.5) sepia(0.3);
+      cursor: pointer;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+  }
+
+  &--error {
+    input, textarea, select {
+      border-color: #c85858;
+      &:focus { box-shadow: 0 0 0 2px rgba(200, 88, 88, 0.12); }
+    }
+    label { color: #c85858; }
+  }
+}
+
+.select-wrapper {
+  position: relative;
+  select { padding-right: 2.5rem; cursor: pointer; }
+  .select-arrow {
+    position: absolute;
+    right: 0.9rem;
+    top: 50%;
+    translate: 0 -50%;
+    color: rgba(245, 235, 210, 0.25);
+    font-size: 0.8rem;
+    pointer-events: none;
+  }
+}
+
+.field-error { font-size: 0.74rem; color: #c85858; margin-top: 0.1rem; }
+
+.form-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(200, 88, 88, 0.08);
+  border: 1px solid rgba(200, 88, 88, 0.25);
+  border-radius: 0;
+  padding: 0.9rem 1.2rem;
+  color: #e89898;
+  font-size: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.form-actions { display: flex; justify-content: flex-end; margin-top: 0.4rem; }
+
+.res-submit {
+  min-width: 220px;
+  position: relative;
+  &.loading { pointer-events: none; opacity: 0.7; }
+  &:disabled { cursor: not-allowed; }
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { rotate: 360deg; } }
+
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  gap: 1rem;
+
+  &__icon { font-size: 2.4rem; color: var(--amber-light); display: block; animation: fadeUp 0.5s ease both; }
+
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--cream);
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+
+  p {
+    font-family: var(--font-body);
+    color: rgba(245, 235, 210, 0.45);
+    font-size: 1rem;
+    max-width: 380px;
+    line-height: 1.65;
+    animation: fadeUp 0.5s 0.2s ease both;
+  }
+
+  .btn { animation: fadeUp 0.5s 0.3s ease both; margin-top: 0.5rem; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 760px) {
+  .reservations-card { padding: 2rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .reservations-card { padding: 1.6rem 1.1rem; }
+  .form-actions { justify-content: stretch; .res-submit { width: 100%; } }
+}

@@ -1,0 +1,81 @@
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="contact-header" appReveal>
+      <p class="section-label">{{ lang.t().contact.label }}</p>
+      <h2 class="section-title">{{ lang.t().contact.titlePre }} <em>{{ lang.t().contact.titleEm }}</em></h2>
+    </div>
+
+    <div class="contact-grid" appReveal [revealDelay]="100">
+
+      <!-- Info cards -->
+      <div class="contact-cards">
+
+        <div class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true">📍</span>
+          <div class="contact-card__body">
+            <h4>{{ lang.t().contact.addressTitle }}</h4>
+            <p>{{ info.address }}<br>{{ info.addressLine2 }}</p>
+            <a [href]="info.mapsUrl" target="_blank" rel="noopener noreferrer" class="contact-link">
+              {{ lang.t().contact.mapsLink }}
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true">📞</span>
+          <div class="contact-card__body">
+            <h4>{{ lang.t().contact.phoneTitle }}</h4>
+            <p>{{ lang.t().contact.phoneSubtitle }}</p>
+            <a [href]="info.phoneHref" class="contact-link contact-link--phone">
+              {{ info.phone }}
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true">✉️</span>
+          <div class="contact-card__body">
+            <h4>{{ lang.t().contact.emailTitle }}</h4>
+            <p>{{ lang.t().contact.emailSubtitle }}</p>
+            <a [href]="'mailto:' + info.email" class="contact-link">
+              {{ info.email }}
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true">🌐</span>
+          <div class="contact-card__body">
+            <h4>{{ lang.t().contact.followTitle }}</h4>
+            <p>{{ lang.t().contact.followSubtitle }}</p>
+            <div class="social-links">
+              <a href="#" rel="noopener noreferrer" class="social-link">Instagram</a>
+              <a href="#" rel="noopener noreferrer" class="social-link">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Google Map -->
+      <div class="map-wrapper">
+        <iframe
+          title="Brasserie 1891 on Google Maps"
+          [src]="info.mapEmbed | safeUrl"
+          width="100%"
+          height="100%"
+          style="border: 0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-badge" aria-hidden="true">
+          <strong>Brasserie 1891</strong>
+          <span>Kifissia · Athens</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

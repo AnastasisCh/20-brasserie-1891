@@ -1,0 +1,120 @@
+.footer {
+  background: #0d0509;
+  border-top: 1px solid rgba(184, 144, 44, 0.15);
+  padding-top: 3.5rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* ── Brand ────────────────────────────────────────────────── */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cream);
+
+  em {
+    color: var(--amber);
+    font-style: italic;
+  }
+}
+
+.logo-mark {
+  color: var(--amber);
+  font-size: 1.2rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: rgba(245, 235, 210, 0.35);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Nav ──────────────────────────────────────────────────── */
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  a {
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245, 235, 210, 0.35);
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover { color: var(--amber); }
+  }
+}
+
+/* ── Social ───────────────────────────────────────────────── */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: rgba(245, 235, 210, 0.35);
+    border: 1px solid rgba(184, 144, 44, 0.2);
+    border-radius: var(--radius);
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      color: var(--amber);
+      border-color: var(--amber);
+    }
+
+    svg { display: block; }
+  }
+}
+
+/* ── Bottom bar ───────────────────────────────────────────── */
+.footer-bottom {
+  border-top: 1px solid rgba(184, 144, 44, 0.1);
+  padding: 1.2rem var(--pad);
+  text-align: center;
+
+  p {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: rgba(245, 235, 210, 0.18);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-nav { justify-content: center; }
+  .footer-social { justify-content: center; }
+}

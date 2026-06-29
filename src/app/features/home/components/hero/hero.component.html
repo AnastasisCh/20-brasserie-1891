@@ -1,0 +1,30 @@
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-grain"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-wave"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">{{ lang.t().hero.eyebrow }}</p>
+
+    <h1 class="hero-title">
+      <span>{{ lang.t().hero.title1 }}</span>
+      <span class="italic">{{ lang.t().hero.title2 }}</span>
+      <span>{{ lang.t().hero.title3 }}</span>
+    </h1>
+
+    <p class="hero-subtitle" [innerHTML]="lang.t().hero.subtitle.replace('\n', '<br>')"></p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary" (click)="scrollTo('menu')">{{ lang.t().hero.btnMenu }}</button>
+      <button class="btn btn-ghost"   (click)="scrollTo('contact')">{{ lang.t().hero.btnReserve }}</button>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>

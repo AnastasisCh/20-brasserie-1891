@@ -1,0 +1,14 @@
+<section class="cta">
+  <div class="cta-bg" aria-hidden="true">
+    <div class="cta-glow"></div>
+    <div class="cta-wave"></div>
+  </div>
+
+  <div class="container cta-content" appReveal>
+    <h2>{{ lang.t().cta.titlePre }} <em>{{ lang.t().cta.titleEm }}</em> {{ lang.t().cta.titlePost }}</h2>
+    <p>{{ lang.t().cta.subtitle }}</p>
+    <a [href]="phoneHref" class="btn btn-primary btn-large">
+      {{ lang.t().cta.btn }} &mdash; {{ phone }}
+    </a>
+  </div>
+</section>

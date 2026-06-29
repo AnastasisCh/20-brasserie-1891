@@ -1,0 +1,21 @@
+<section class="gallery" id="gallery">
+
+  <div class="container gallery-header" appReveal>
+    <p class="section-label">{{ lang.t().gallery.label }}</p>
+    <h2 class="section-title">{{ lang.t().gallery.titlePre }} <em>{{ lang.t().gallery.titleEm }}</em></h2>
+  </div>
+
+  <div class="gallery-grid" appReveal [revealDelay]="150">
+    <div
+      *ngFor="let img of images; let i = index"
+      class="gallery-item"
+      [class.gallery-item--tall]="img.tall"
+      [class.gallery-item--wide]="img.wide">
+      <img
+        [src]="img.url"
+        [alt]="lang.t().gallery.alts[i] ?? img.alt"
+        loading="lazy" />
+    </div>
+  </div>
+
+</section>
