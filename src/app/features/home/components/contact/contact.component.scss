@@ -121,3 +121,8 @@
   .contact-grid { grid-template-columns: 1fr; }
   .map-wrapper, .map-wrapper iframe { min-height: 320px; }
 }
+
+@media (max-width: 480px) {
+  .contact { padding: 4rem 0; }
+  .map-wrapper, .map-wrapper iframe { min-height: 240px; }
+}

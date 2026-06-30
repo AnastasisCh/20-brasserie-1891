@@ -110,3 +110,11 @@
   .about-img-accent { width: 150px; height: 180px; right: 0; bottom: -1.5rem; }
   .about-badge { left: 0.5rem; }
 }
+
+@media (max-width: 480px) {
+  .about { padding: 4rem 0; }
+  .about-img-main { height: 260px; }
+  .about-img-accent { display: none; }
+  .about-badge { left: 0; top: 1rem; }
+  .about-stats { gap: 1.5rem; flex-wrap: wrap; }
+}

@@ -59,3 +59,8 @@
     margin-inline: auto;
   }
 }
+
+@media (max-width: 480px) {
+  .cta { padding: 4rem var(--pad); }
+  .cta-content h2 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+}

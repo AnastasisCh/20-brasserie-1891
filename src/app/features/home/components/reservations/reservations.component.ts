@@ -53,7 +53,7 @@ export class ReservationsComponent {
     this.cdr.markForCheck();
 
     const reservationData = { ...this.form.value, market: 'Brasserie1891' };
-    this.http.post('https://marketswebapi-gde3hpftfdhuawaj.westeurope-01.azurewebsites.net/api/Reservations/CreateReservation', reservationData, { responseType: 'text' }).subscribe({
+    this.http.post('https://cafebarrestaurantapi-gjagh7csarhjaxd7.italynorth-01.azurewebsites.net/api/Reservations/CreateReservation', reservationData, { responseType: 'text' }).subscribe({
       next: () => {
         this.submitState = 'success';
         this.cdr.markForCheck();

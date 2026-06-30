@@ -211,3 +211,10 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .navbar { padding: 1rem var(--pad); }
+  .nav-controls { gap: 0.3rem; }
+  .lang-toggle { padding: 0.25rem 0.5rem; font-size: 0.65rem; }
+  .theme-toggle { width: 30px; height: 30px; }
+}
